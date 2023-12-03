@@ -31,7 +31,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		# Flip sprite and play walking animation.
-		if is_on_floor() and animated_sprite_2d.animation != "land":
+		if is_on_floor():
 			animated_sprite_2d.flip_h = direction < 0
 			animated_sprite_2d.play("walk")
 	else:

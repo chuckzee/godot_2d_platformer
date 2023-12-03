@@ -141,6 +141,11 @@ region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n3sy"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r1as5")
@@ -275,7 +280,7 @@ script = ExtResource("1_g3owg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.833333, 1)
 sprite_frames = SubResource("SpriteFrames_1n3sy")
-animation = &"wall_slide"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
