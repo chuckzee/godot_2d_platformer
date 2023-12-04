@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -250.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D
 var was_on_floor = true
 var landing_animation = false
 
@@ -25,6 +26,12 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
 			was_on_floor = false
+	if is_on_wall_only():
+		animated_sprite_2d.play("wall_slide")
+		collision_shape.shape.extents = Vector2(5,16)
+		collision_shape.position.x = -6
+	else:
+		collision_shape.shape.extents = Vector2(8,16)
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
